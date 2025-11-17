@@ -1,4 +1,5 @@
 import { Cards } from '@/components/Home/Cards'
+import { ExpensesChart } from '@/components/Home/ExpensesChart'
 import { Header } from '@/components/Home/Header'
 import { Services } from '@/components/Home/Services'
 import { ScrollView, StyleSheet } from 'react-native'
@@ -11,6 +12,7 @@ export default function HomeScreen() {
         <Header />
         <Services />
         <Cards />
+        <ExpensesChart />
       </ScrollView>
     </SafeAreaView>
   )

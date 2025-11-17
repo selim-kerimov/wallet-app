@@ -24,8 +24,8 @@ export const StyledText = ({ type = 'bodyRegular', color = 'textMain', style, ..
 
 const styles = StyleSheet.create<{ [_ in Typography]: TextStyle }>({
   headlineLarge: {
-    fontSize: 19,
-    fontWeight: 600,
+    fontSize: 21,
+    fontWeight: 500,
   },
   headlineMedium: {
     fontSize: 18,
