@@ -1,3 +1,4 @@
+import { Cards } from '@/components/Home/Cards'
 import { Header } from '@/components/Home/Header'
 import { Services } from '@/components/Home/Services'
 import { ScrollView, StyleSheet } from 'react-native'
@@ -9,6 +10,7 @@ export default function HomeScreen() {
       <ScrollView contentContainerStyle={style.content} showsVerticalScrollIndicator={false}>
         <Header />
         <Services />
+        <Cards />
       </ScrollView>
     </SafeAreaView>
   )
