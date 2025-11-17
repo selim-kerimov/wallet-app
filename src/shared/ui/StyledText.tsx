@@ -37,6 +37,7 @@ const styles = StyleSheet.create<{ [_ in Typography]: TextStyle }>({
   },
   bodyLarge: {
     fontSize: 16,
+    fontWeight: 500,
   },
   bodyMedium: {
     fontSize: 14,
