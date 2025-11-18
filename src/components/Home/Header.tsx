@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import PersonIcon from '@/assets/icons/person.svg'
 import QrIcon from '@/assets/icons/qr.svg'
-import ChaveronIcon from '@/assets/icons/chaveron.svg'
+import ChaveronIcon from '@/assets/icons/arrow.svg'
 import { StyledText } from '@/shared/ui/StyledText'
 import { Palette } from '@/shared/constants/Palette'
 import { router } from 'expo-router'
@@ -19,7 +19,7 @@ export const Header = () => {
           onPress={() => router.push('/notifications')}
         >
           <StyledText type="bodyLarge">Charlotte</StyledText>
-          <ChaveronIcon color={Palette.textMain} style={styles.chaveron} width={16} height={16} />
+          <ChaveronIcon color={Palette.textMain} style={styles.chaveron} />
         </TouchableOpacity>
       </View>
 
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
   nameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 8,
   },
   chaveron: {
-    transform: [{ rotate: '90deg' }],
+    marginTop: 3,
   },
 })
