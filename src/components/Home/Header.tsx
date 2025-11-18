@@ -4,6 +4,7 @@ import QrIcon from '@/assets/icons/qr.svg'
 import ChaveronIcon from '@/assets/icons/chaveron.svg'
 import { StyledText } from '@/shared/ui/StyledText'
 import { Palette } from '@/shared/constants/Palette'
+import { router } from 'expo-router'
 
 export const Header = () => {
   return (
@@ -13,9 +14,12 @@ export const Header = () => {
           <PersonIcon color={Palette.textMain} />
         </View>
 
-        <TouchableOpacity style={styles.nameContainer}>
+        <TouchableOpacity
+          style={styles.nameContainer}
+          onPress={() => router.push('/notifications')}
+        >
           <StyledText type="bodyLarge">Charlotte</StyledText>
-          <ChaveronIcon color={Palette.textMain} style={{ marginTop: 3 }} />
+          <ChaveronIcon color={Palette.textMain} style={styles.chaveron} width={16} height={16} />
         </TouchableOpacity>
       </View>
 
@@ -46,6 +50,9 @@ const styles = StyleSheet.create({
   nameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 4,
+  },
+  chaveron: {
+    transform: [{ rotate: '180deg' }],
   },
 })
