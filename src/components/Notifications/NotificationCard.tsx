@@ -13,10 +13,11 @@ interface Props {
 }
 
 export const NotificationCard = ({ notification }: Props) => {
-  const icon: { [_ in NotificationType]: ReactNode } = {
+  const icon: Record<NotificationType, ReactNode> = {
     Payments: <PaymentIcon />,
     Security: <SecurityIcon />,
     Travel: <TravelIcon width={20} height={20} />,
+    Delivery: <PaymentIcon />,
   }
 
   return (
@@ -37,7 +38,7 @@ export const NotificationCard = ({ notification }: Props) => {
           )}
         </View>
 
-        <View style={styles.section}>
+        <View style={styles.sectionSecondary}>
           {notification?.message && (
             <StyledText color="textSecondary" style={styles.message}>
               {notification.message}
@@ -66,7 +67,7 @@ export const NotificationCard = ({ notification }: Props) => {
 const styles = StyleSheet.create({
   main: {
     flexDirection: 'row',
-    gap: 12,
+    alignItems: 'flex-start',
   },
   image: {
     width: 42,
@@ -75,13 +76,16 @@ const styles = StyleSheet.create({
     backgroundColor: Palette.backgroundLight,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 12,
   },
   sections: {
     flex: 1,
-    gap: 6,
   },
   section: {
-    gap: 4,
+    marginBottom: 4,
+  },
+  sectionSecondary: {
+    marginBottom: 8,
   },
   message: {
     flex: 1,

@@ -1,38 +1,47 @@
-import { NotificationCard } from '@/components/Notifications/NotificationCard'
-import { notificationsMockData } from '@/mock/notificationsMockData'
-import { StyledText } from '@/shared/ui/StyledText'
-import { FlatList, StyleSheet, View } from 'react-native'
+import { Header } from '@/components/Notifications/Header'
+import { Section } from '@/components/Notifications/Section'
+import { NotificationType } from '@/mock/notificationsMockData'
+import { useRef } from 'react'
+import { Dimensions, FlatList, View } from 'react-native'
+import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+const { width: WINDOW_WIDTH } = Dimensions.get('window')
+
 export default function Notifications() {
+  const flatListRef = useRef<FlatList>(null)
   const insets = useSafeAreaInsets()
+  const scrollX = useSharedValue(0)
+
+  const handleScroll = useAnimatedScrollHandler((e) => {
+    scrollX.value = e.contentOffset.x
+  })
+
+  const handleHeaderItemPress = (index: number) => {
+    flatListRef.current?.scrollToIndex({ index })
+  }
 
   return (
-    <FlatList
-      data={notificationsMockData}
-      renderItem={({ item }) => (
-        <View style={styles.listItem}>
-          <StyledText type="labelMedium" color="textSecondary">
-            {item.date}
-          </StyledText>
-          <View style={styles.notifications}>
-            {item.notifications.map((notification) => (
-              <NotificationCard key={notification.id} notification={notification} />
-            ))}
-          </View>
-        </View>
-      )}
-      contentContainerStyle={{ paddingBottom: insets.bottom }}
-    />
+    <View>
+      <Header sections={sections} scrollX={scrollX} onItemPress={handleHeaderItemPress} />
+
+      <Animated.FlatList
+        ref={flatListRef}
+        data={sections}
+        renderItem={({ item }) => <Section section={item} />}
+        onScroll={handleScroll}
+        horizontal
+        pagingEnabled
+        contentContainerStyle={{ paddingBottom: insets.bottom }}
+        getItemLayout={(_, index) => ({
+          index,
+          length: WINDOW_WIDTH,
+          offset: WINDOW_WIDTH * index,
+        })}
+      />
+    </View>
   )
 }
 
-const styles = StyleSheet.create({
-  listItem: {
-    gap: 16,
-    padding: 16,
-  },
-  notifications: {
-    gap: 24,
-  },
-})
+export type NotificationSection = 'All' | NotificationType
+const sections: NotificationSection[] = ['All', 'Payments', 'Security', 'Travel', 'Delivery']
