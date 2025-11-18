@@ -2,6 +2,7 @@ export const Palette = {
   accent: '#FE5900',
   background: '#060503',
   backgroundLight: '#0F0F0F',
+  gray: '#616161',
 
   orange700: '#CC3F02',
   orange400: '#FF9332',
