@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   chaveron: {
-    transform: [{ rotate: '180deg' }],
+    transform: [{ rotate: '90deg' }],
   },
 })

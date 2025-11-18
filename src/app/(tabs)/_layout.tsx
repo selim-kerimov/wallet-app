@@ -29,6 +29,9 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           paddingTop: 8,
         },
+        tabBarIconStyle: {
+          pointerEvents: 'none',
+        },
       }}
     >
       <Tabs.Screen

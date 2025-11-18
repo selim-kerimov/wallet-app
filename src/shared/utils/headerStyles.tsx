@@ -19,7 +19,7 @@ export const headerStyles = (title: string): ExtendedStackNavigationOptions => {
     },
     headerLeft: () => (
       <Pressable onPress={() => router.back()} style={{ padding: 8, marginRight: 6 }}>
-        <ChaveronIcon color={Palette.textMain} />
+        <ChaveronIcon color={Palette.textMain} style={{ pointerEvents: 'none' }} />
       </Pressable>
     ),
   }

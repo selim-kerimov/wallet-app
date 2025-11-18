@@ -10,7 +10,11 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.selimkerimov.walletapp"
+      "bundleIdentifier": "com.selimkerimov.walletapp",
+      "infoPlist": {
+        "UIDesignRequiresCompatibility": true,
+        "UIViewControllerBasedStatusBarAppearance": true
+      }
     },
     "android": {
       "adaptiveIcon": {
