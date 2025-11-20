@@ -3,6 +3,7 @@ import { LiquidGlassView, isLiquidGlassSupported } from '@callstack/liquid-glass
 import { StyleSheet, View } from 'react-native'
 import { StyledText } from '@/shared/ui/StyledText'
 import { Image } from 'expo-image'
+import { Menu } from '@/components/Payments/Menu'
 
 export default function Screen() {
   return (
@@ -13,7 +14,7 @@ export default function Screen() {
         contentFit="cover"
       />
 
-      <SafeAreaView edges={['top']}>
+      <SafeAreaView edges={['top']} style={{ paddingHorizontal: 16 }}>
         <LiquidGlassView
           style={[
             styles.liquidGlass,
@@ -24,6 +25,8 @@ export default function Screen() {
         >
           <StyledText type="headlineMedium">Hello World</StyledText>
         </LiquidGlassView>
+
+        <Menu />
       </SafeAreaView>
     </View>
   )
@@ -40,7 +43,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 16,
   },
   backgroundImage: {
     width: '100%',
