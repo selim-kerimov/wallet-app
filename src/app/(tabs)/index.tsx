@@ -3,12 +3,13 @@ import { Expenses } from '@/components/Home/Expenses'
 import { ExpensesChart } from '@/components/Home/ExpensesChart'
 import { Header } from '@/components/Home/Header'
 import { Services } from '@/components/Home/Services'
+import { Palette } from '@/shared/constants/Palette'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: Palette.background }}>
       <ScrollView contentContainerStyle={style.content} showsVerticalScrollIndicator={false}>
         <Header />
         <Services />
